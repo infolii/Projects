@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FIOD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6be2eb306aff4371739344971e445cd50d87c082")]
 [assembly: System.Reflection.AssemblyProductAttribute("FIOD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FIOD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
