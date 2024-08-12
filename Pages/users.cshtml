@@ -1,0 +1,68 @@
+﻿@page
+@model FIOD.Pages.usersModel
+@{
+    ViewData["Title"] = "Users";
+}
+<style>
+    table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  overflow: auto;
+  width: 100%;
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
+tbody {
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  border-top-width: 0;
+  border-left-width: 0;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  vertical-align: bottom;
+}
+
+th:last-child,
+td:last-child {
+  border-right-width: 0;
+}
+
+tr:last-child td {
+  border-bottom-width: 0;
+}
+
+</style>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FIO</th>
+            <th scope="col">Login</th>
+            <th scope="col">Date of birth</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var Account in Model.AccountList)
+    {
+        <tr>
+            <td>@Account.Id</td>
+            <td>@Account.FIO</td>
+            <td>@Account.Login</td>
+            <td>@Account.DateOfBirth.ToString("d")</td>
+        </tr>
+    }
+    </tbody>
+</table>

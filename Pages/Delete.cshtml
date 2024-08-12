@@ -1,0 +1,15 @@
+﻿@page
+@model FIOD.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Delete page";
+}
+
+<form method="post">
+    <div>
+    <label>Enter id for delete account: </label>
+    <input asp-for ="id" type="text" required />
+  </div>
+  <div>
+    <input type="submit" value="Delete!" />
+  </div>
+</form>
