@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\boits\\Desktop\\FIOD\\FIOD.csproj": {}
+    "C:\\Users\\boits\\Documents\\GitHub\\Projects\\FIOD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\boits\\Desktop\\FIOD\\FIOD.csproj": {
+    "C:\\Users\\boits\\Documents\\GitHub\\Projects\\FIOD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\boits\\Desktop\\FIOD\\FIOD.csproj",
+        "projectUniqueName": "C:\\Users\\boits\\Documents\\GitHub\\Projects\\FIOD.csproj",
         "projectName": "FIOD",
-        "projectPath": "C:\\Users\\boits\\Desktop\\FIOD\\FIOD.csproj",
+        "projectPath": "C:\\Users\\boits\\Documents\\GitHub\\Projects\\FIOD.csproj",
         "packagesPath": "C:\\Users\\boits\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\boits\\Desktop\\FIOD\\obj\\",
+        "outputPath": "C:\\Users\\boits\\Documents\\GitHub\\Projects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

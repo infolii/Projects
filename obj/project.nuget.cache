@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BY+XgLkDCYA=",
+  "dgSpecHash": "gtFuXCEc0po=",
   "success": true,
-  "projectFilePath": "C:\\Users\\boits\\Desktop\\FIOD\\FIOD.csproj",
+  "projectFilePath": "C:\\Users\\boits\\Documents\\GitHub\\Projects\\FIOD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\boits\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\boits\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
