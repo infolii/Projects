@@ -1,5 +1,7 @@
 using FIOD.Data;
 using FIOD.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FIOD.Service
@@ -77,15 +79,15 @@ namespace FIOD.Service
         IdResult = 4: Введена некоректная дата рождения
         IdResult = 5: Введен существующий логин
         */
-        public string AddAccount(Account newAccount)
+        public IResult AddAccount(Account newAccount)
         {
-            if (!TestFIO(newAccount.FIO)) return "2";
-            if (!TestLogin(newAccount.Login)) return "3";
-            if (!TestDOB(newAccount.DateOfBirth)) return "4";
-            if (!TestExistingLogin(newAccount.Login)) return "5";
+            if (!TestFIO(newAccount.FIO)) return Results.BadRequest(new {messege = "Введено некоректное ФИО"});
+            if (!TestLogin(newAccount.Login)) return Results.BadRequest(new {messege = "Введен некоректный логин"});
+            if (!TestDOB(newAccount.DateOfBirth)) return Results.BadRequest(new {messege = "Введена некоректная дата рождения"});
+            if (!TestExistingLogin(newAccount.Login)) return Results.BadRequest(new {messege = "Введен существующий логин"});
             _context.Accounts.Add(newAccount);
             _context.SaveChanges();
-            return "1";
+            return Results.Ok(new { message = "Аккаунт успешно зарегистрирован!" });
         }
         public void DeleteAccount(int id)
         {

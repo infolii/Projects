@@ -8,7 +8,7 @@ namespace FIOD.Pages;
 [IgnoreAntiforgeryToken]
 public class ErrorModel : PageModel
 {
-    public string? Error {get;set;}
+    public object? Error {get;set;}
     public object? Id { get; set; }
 
     private readonly ILogger<ErrorModel> _logger;
@@ -22,7 +22,7 @@ public class ErrorModel : PageModel
     public void OnGet()
     {
         //RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-        Error = RouteData.Values["IdError"].ToString();
+        Error = RouteData.Values["IdError"];
 
         switch (Error)
         {

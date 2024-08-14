@@ -1,6 +1,7 @@
 //dotnet new page --name PizzaList --namespace ContosoPizza.Pages --output Pages
 using FIOD.Models;
 using FIOD.Service;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -14,7 +15,7 @@ public class IndexModel : PageModel
     public Account Account {get; set;} = default!;
     [BindProperty]
     public Account newAccount {get; set;} = default!;
-    public string? IdResult {get; set;}
+    public object? IdResult {get; set;}
 
     public IndexModel(AccountService service)
     {
@@ -32,7 +33,7 @@ public class IndexModel : PageModel
     public IActionResult OnPost()
     {
         IdResult = _service.AddAccount(newAccount);
-        if (IdResult != "1") return RedirectToPage("Error", new {IdError = IdResult});
+        if (IdResult != Results.Ok()) return RedirectToPage("Error", new {IdError = IdResult});
         return RedirectToAction("Get",new {IdResult = IdResult});
     }
 }
