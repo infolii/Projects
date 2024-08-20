@@ -15,10 +15,19 @@ namespace FIOD.Pages
         [BindProperty]
         public int id {get;set;}
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            if (id > 0)
+            string IdResult = _service.TestID(id.ToString());
+            if (IdResult == "6") 
+            {
+                return RedirectToPage("Error", new {IdError = "6"});
+            }
+            if (IdResult == "7") 
+            {
+                return RedirectToPage("Error", new {IdError = "7"});
+            }
             _service.DeleteAccount(id);
+            return RedirectToAction("Post",new {Id = id});
         }
     }
 }

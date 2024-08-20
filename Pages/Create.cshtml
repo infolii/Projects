@@ -1,0 +1,28 @@
+﻿@page "{IdResult?}"
+@model FIOD.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create page";
+}
+<form method="post">
+  <div>
+    <label>Enter your FIO: </label>
+    <input asp-for="newAccount.FIO" required />
+  </div>
+  <div>
+    <label>Enter your Login: </label>
+    <input asp-for="newAccount.Login" required />
+  </div>
+  <div>
+    <label>Enter your Date of birth: </label>
+    <input asp-for="newAccount.DateOfBirth" type="date" min="1907-03-07" max = "new Date()" required />
+  </div>
+  <div>
+    <input type="submit" value="Register!" />
+  </div>
+</form>
+@if (Model.IdResult == "1")
+{
+  <script>
+      alert("Аккаунт успешно зарегистрирован!");
+  </script>
+}

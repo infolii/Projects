@@ -1,4 +1,4 @@
-//dotnet new page --name PizzaList --namespace ContosoPizza.Pages --output Pages
+//dotnet new page --name Create --namespace FIOD.Pages --output Pages
 using FIOD.Models;
 using FIOD.Service;
 using Microsoft.AspNetCore.Mvc;

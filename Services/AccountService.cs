@@ -12,19 +12,23 @@ namespace FIOD.Service
             _context = context;
         }
 
-        public bool TestID (string ID)
+        public string TestID (string ID)
         {
-            string[] words = ID.Split(new char[] { ' ' });
-            if (words.Count() > 1) return false;
+            /*string[] words = ID.Split(new char[] { ' ' });
+            if (words.Count() > 1) return "6";
             foreach (string word in words)
             {
                 Char[] letters = word.ToCharArray();
                 foreach (Char letter in letters)
                 {
-                    if (!Char.IsDigit(letter)) return false;
+                    if (!Char.IsDigit(letter)) return "6";
                 }
+            }*/
+            if (_context.Accounts.Find(int.Parse(ID)) == null)
+            {
+                return "7";
             }
-            return true;
+            return "1";
         }
         public bool TestFIO (string FIO)
         {
@@ -86,11 +90,13 @@ namespace FIOD.Service
             return null;
         }
         /*
-        IdResult = 1: Аккаунт успешно зарегистрирован!
+        IdResult = 1: Успех!
         IdResult = 2: Введено некоректное ФИО
         IdResult = 3: Введен некоректный логин
         IdResult = 4: Введена некоректная дата рождения
         IdResult = 5: Введен существующий логин
+        IdResult = 6: Введен неверный ID
+        IdResult = 7: Аккаунта с таким ID не существует
         */
         public string AddAccount(Account newAccount)
         {
@@ -104,7 +110,7 @@ namespace FIOD.Service
         }
         public void DeleteAccount(int id)
         {
-            if (_context.Accounts != null && _context.Accounts.Find(id) != null)
+            if (_context.Accounts != null)
             {
                 var DelAcc = _context.Accounts.Find(id);
                 _context.Accounts.Remove(DelAcc);

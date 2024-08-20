@@ -17,25 +17,36 @@ namespace FIOD.Pages
         {
             _service = service;
         }
-        public IActionResult OnGet()
+        public IActionResult Error(string IdResult)
+        {
+            return RedirectToPage("Error", new {IdError = "IdError"});
+        }
+        public void OnGet()
         {
             if (RouteData.Values["Id"] != null)
             {
                 id = RouteData.Values["Id"].ToString();
+                /*if (_service.TestID(id) == "6")
+                {
+                    return;
+                }*/
                 Account = _service.GetAccountId(id);
                 if (Account == null)
                 {
-                    return RedirectToPage("Error", new {IdError = "7"});
+                    return;
                 }
-                return new OkResult();
             }
-            return BadRequest();
         }
         public IActionResult OnPost()
         {
-            if (!_service.TestID(id))
+            string IdResult = _service.TestID(id);
+            /*if (IdResult == "6") 
             {
                 return RedirectToPage("Error", new {IdError = "6"});
+            }*/
+            if (IdResult == "7") 
+            {
+                return RedirectToPage("Error", new {IdError = "7"});
             }
             return RedirectToAction("Get",new {Id = id});
         }

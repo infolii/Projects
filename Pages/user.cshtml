@@ -8,17 +8,17 @@
     <form method="post">
     <div>
         <label>Enter ID users: </label>
-        <input asp-for="id" required />
+        <input asp-for = "id" type = "number" required />
     </div>
     <div>
-        <input type="submit" value="Register!" />
+        <input type="submit" value="Find!" />
     </div>
 </form>
 }
 @if (Model.Account != null)
 {
-    <label>@Model.Account.Id</label>
-    <label>@Model.Account.FIO</label>
-    <label>@Model.Account.Login</label>
-    <label>@Model.Account.DateOfBirth.ToString("d")</label>
+    <p><b>ID:</b> @Model.Account.Id</p>
+    <p><b>FIO:</b> @Model.Account.FIO</p>
+    <p><b>Login:</b> @Model.Account.Login</p>
+    <p><b>Date Of Birth:</b> @Model.Account.DateOfBirth.ToString("d")</p>
 }
