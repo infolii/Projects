@@ -18,7 +18,15 @@ public class ErrorModel : PageModel
         _logger = logger;
     }
 
-
+        /*
+        IdResult = 1: Аккаунт успешно зарегистрирован!
+        IdResult = 2: Введено некоректное ФИО
+        IdResult = 3: Введен некоректный логин
+        IdResult = 4: Введена некоректная дата рождения
+        IdResult = 5: Введен существующий логин
+        IdResult = 6: Введен неверный ID
+        IdResult = 7: Аккаунта с таким ID не существует
+        */
     public void OnGet()
     {
         //RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
@@ -37,6 +45,12 @@ public class ErrorModel : PageModel
             break;
             case "5":
             Error = "Введен существующий логин";
+            break;
+            case "6":
+            Error = "Введен неверный ID";
+            break;
+            case "7":
+            Error = "Аккаунта с таким ID не существует";
             break;
         }
         

@@ -1,5 +1,24 @@
-﻿@page "{Id}"
+﻿@page "{Id?}"
 @model FIOD.Pages.userModel
 @{
     ViewData["Title"] = "User";
+}
+@if (Model.id == null)
+{
+    <form method="post">
+    <div>
+        <label>Enter ID users: </label>
+        <input asp-for="id" required />
+    </div>
+    <div>
+        <input type="submit" value="Register!" />
+    </div>
+</form>
+}
+@if (Model.Account != null)
+{
+    <label>@Model.Account.Id</label>
+    <label>@Model.Account.FIO</label>
+    <label>@Model.Account.Login</label>
+    <label>@Model.Account.DateOfBirth.ToString("d")</label>
 }

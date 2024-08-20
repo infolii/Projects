@@ -12,6 +12,20 @@ namespace FIOD.Service
             _context = context;
         }
 
+        public bool TestID (string ID)
+        {
+            string[] words = ID.Split(new char[] { ' ' });
+            if (words.Count() > 1) return false;
+            foreach (string word in words)
+            {
+                Char[] letters = word.ToCharArray();
+                foreach (Char letter in letters)
+                {
+                    if (!Char.IsDigit(letter)) return false;
+                }
+            }
+            return true;
+        }
         public bool TestFIO (string FIO)
         {
             string[] words = FIO.Split(new char[] { ' ' });
@@ -62,14 +76,15 @@ namespace FIOD.Service
             }
             else return new List<Account>();
         }
-        /*public Account? GetAccountId(int id)
+        public Account? GetAccountId(string id)
         {
             if (_context.Accounts != null)
             {
-                var account = _context.Accounts.Find(id);
+                var account = _context.Accounts.Find(int.Parse(id));
+                return account;
             }
-            return account;
-        }*/
+            return null;
+        }
         /*
         IdResult = 1: Аккаунт успешно зарегистрирован!
         IdResult = 2: Введено некоректное ФИО
