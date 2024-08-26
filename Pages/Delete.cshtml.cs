@@ -27,7 +27,7 @@ namespace FIOD.Pages
                 return RedirectToPage("Error", new {IdError = "7"});
             }
             _service.DeleteAccount(id);
-            return RedirectToAction("Post",new {Id = id});
+            return RedirectToPage("Delete",new {Id = id});
         }
     }
 }

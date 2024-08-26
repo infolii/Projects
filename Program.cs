@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 builder.Services.AddScoped<AccountService>();
 var connectionString = builder.Configuration.GetConnectionString("Accounts") ?? "Data Source=Accounts.db";
 builder.Services.AddSqlite<AccountContext>(connectionString);
@@ -32,6 +33,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllers();
 
 app.MapRazorPages();
 

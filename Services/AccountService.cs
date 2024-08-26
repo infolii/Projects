@@ -14,7 +14,7 @@ namespace FIOD.Service
 
         public string TestID (string ID)
         {
-            /*string[] words = ID.Split(new char[] { ' ' });
+            string[] words = ID.Split(new char[] { ' ' });
             if (words.Count() > 1) return "6";
             foreach (string word in words)
             {
@@ -23,12 +23,13 @@ namespace FIOD.Service
                 {
                     if (!Char.IsDigit(letter)) return "6";
                 }
-            }*/
+            }
+            if (int.Parse(ID) < 1) return "6";
             if (_context.Accounts.Find(int.Parse(ID)) == null)
             {
                 return "7";
             }
-            return "1";
+            return "8";
         }
         public bool TestFIO (string FIO)
         {
@@ -61,7 +62,7 @@ namespace FIOD.Service
         }
         public bool TestDOB(DateTime DateOfBirth )
         {
-            if (DateOfBirth > DateTime.Now) return false;
+            if (DateOfBirth > DateTime.Now || DateOfBirth < new DateTime(1907, 03, 07)) return false;
             return true;
         }
         public bool TestExistingLogin(string Login)
@@ -97,13 +98,23 @@ namespace FIOD.Service
         IdResult = 5: Введен существующий логин
         IdResult = 6: Введен неверный ID
         IdResult = 7: Аккаунта с таким ID не существует
+        IdResult = 8: Аккаунт с таким ID существует
         */
         public string AddAccount(Account newAccount)
         {
+            string ResTestId;
             if (!TestFIO(newAccount.FIO)) return "2";
             if (!TestLogin(newAccount.Login)) return "3";
             if (!TestDOB(newAccount.DateOfBirth)) return "4";
             if (!TestExistingLogin(newAccount.Login)) return "5";
+            if (newAccount.Id != null)
+            {
+                ResTestId = TestID(newAccount.Id.ToString());
+                if (ResTestId != "7")
+                {
+                    return ResTestId;
+                }
+            }
             _context.Accounts.Add(newAccount);
             _context.SaveChanges();
             return "1";

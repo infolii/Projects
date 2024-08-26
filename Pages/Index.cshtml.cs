@@ -33,6 +33,6 @@ public class IndexModel : PageModel
     {
         IdResult = _service.AddAccount(newAccount);
         if (IdResult != "1") return RedirectToPage("Error", new {IdError = IdResult});
-        return RedirectToAction("Get",new {IdResult = IdResult});
+        return RedirectToPage("index",new {IdResult = IdResult});
     }
 }

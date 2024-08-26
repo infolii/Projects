@@ -27,7 +27,7 @@ namespace FIOD.Pages
         {
             IdResult = _service.AddAccount(newAccount);
             if (IdResult != "1") return RedirectToPage("Error", new {IdError = IdResult});
-            return RedirectToAction("Get",new {IdResult = IdResult});
+            return RedirectToPage("Create",new {IdResult = IdResult});
         }
     }
 }

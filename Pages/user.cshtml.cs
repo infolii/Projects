@@ -40,15 +40,15 @@ namespace FIOD.Pages
         public IActionResult OnPost()
         {
             string IdResult = _service.TestID(id);
-            /*if (IdResult == "6") 
+            if (IdResult == "6") 
             {
                 return RedirectToPage("Error", new {IdError = "6"});
-            }*/
+            }
             if (IdResult == "7") 
             {
                 return RedirectToPage("Error", new {IdError = "7"});
             }
-            return RedirectToAction("Get",new {Id = id});
+            return RedirectToPage("user",new {Id = id});
         }
     }
 }
